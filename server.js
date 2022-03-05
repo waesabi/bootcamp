@@ -2,11 +2,15 @@ const express = require("express");
 const dotenv = require("dotenv");
 const logger = require("./middleware/logger");
 const morgan = require("morgan");
+const connectDB = require("./config/db");
 // Routes
 const bootcamps = require("./routes/bootcamps");
 
 // load env variables
 dotenv.config({ path: "./config/config.env" });
+
+// connect to monogo db
+connectDB();
 
 const app = express();
 
